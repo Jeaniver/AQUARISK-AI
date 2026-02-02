@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Water Quality Result</title>
+  <link rel="stylesheet" href="result.css">
+</head>
+
+<body class="result-page">
+
+  <div class="container">
+
+    <h2>Water Quality Analysis Result</h2>
+
+    <!-- MAIN RESULT LAYOUT -->
+    <div class="result-layout">
+
+      <!-- LEFT IMAGE -->
+      <img src="https://cdn-icons-png.flaticon.com/512/4148/4148460.png" class="side-img left" alt="water">
+
+      <!-- RESULT BOX -->
+      <div id="finalResult"></div>
+
+    </div>
+
+    <!-- CONCLUSION & ACTION -->
+    <div id="conclusionBox"></div>
+
+    <a href="input.html" class="back-btn">← Back to Input</a>
+
+  </div>
+
+  <script>
+    const data = JSON.parse(localStorage.getItem("waterData"));
+    const resultDiv = document.getElementById("finalResult");
+    const conclusionDiv = document.getElementById("conclusionBox");
+
+    if (!data) {
+      resultDiv.innerHTML = "<p>No data available</p>";
+    } else {
+
+      let color = "#2ecc71";
+      let conclusion = "";
+      let action = "";
+
+      if (data.riskLevel === "MODERATE RISK") {
+        color = "#f1c40f";
+        conclusion = "Water quality is acceptable but shows some risk.";
+        action = `
+          • Boil water before consumption<br>
+          • Improve filtration system<br>
+          • Monitor water quality regularly
+        `;
+      }
+
+      if (data.riskLevel === "HIGH RISK") {
+        color = "#e74c3c";
+        conclusion = "Water quality is unsafe for direct use.";
+        action = `
+          • Do NOT consume directly<br>
+          • Use advanced filtration or treatment<br>
+          • Find alternative clean water sources
+        `;
+      }
+
+      if (data.riskLevel === "SAFE") {
+        conclusion = "Water quality is safe and meets standard conditions.";
+        action = `
+          • Safe for daily use<br>
+          • Maintain water source cleanliness<br>
+          • Continue routine monitoring
+        `;
+      }
+
+      resultDiv.innerHTML = `
+        <div class="result-box" style="border-color:${color}">
+          <p><b>pH Level</b><span>${data.ph}</span></p>
+          <p><b>Turbidity</b><span>${data.turbidity} NTU</span></p>
+          <p><b>Temperature</b><span>${data.temp} °C</span></p>
+          <p><b>Risk Count</b><span>${data.riskCount}</span></p>
+          <h3 style="color:${color}">${data.riskLevel}</h3>
+        </div>
+      `;
+
+      conclusionDiv.innerHTML = `
+        <div class="conclusion-box">
+          <h3>Conclusion</h3>
+          <p>${conclusion}</p>
+
+          <h4>Recommended Action</h4>
+          <p>${action}</p>
+        </div>
+      `;
+    }
+  </script>
+
+</body>
+</html>

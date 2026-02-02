@@ -1,0 +1,219 @@
+/* ===============================
+   RESULT PAGE ONLY
+================================ */
+
+.result-page {
+  min-height: 100vh;
+  background: linear-gradient(to bottom, #e0f7fa, #ffffff);
+  font-family: "Segoe UI", sans-serif;
+}
+
+/* MAIN CONTAINER */
+.result-page .container {
+  max-width: 900px;
+  margin: auto;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+/* TITLE */
+.result-page h2 {
+  font-size: 28px;
+  color: #006064;
+  margin-bottom: 40px;
+}
+
+/* ===============================
+   RESULT LAYOUT
+================================ */
+.result-layout {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  margin-bottom: 40px;
+}
+
+/* SIDE IMAGES */
+.side-img {
+  width: 150px;
+  opacity: 0.9;
+}
+
+.side-img.left {
+  transform: rotate(-6deg);
+}
+
+/* ===============================
+   RESULT BOX (MAIN FOCUS)
+================================ */
+.result-box {
+  background: #ffffff;
+  width: 100%;
+  max-width: 650px;
+  padding: 38px 42px;
+  border-radius: 24px;
+  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.16);
+  border-top: 7px solid #26a69a;
+  animation: fadeUp 0.6s ease;
+}
+
+
+/* RESULT TEXT */
+.result-box p {
+  display: flex;
+  justify-content: space-between;
+  font-size: 20.5px;
+  margin: 20px 50px;
+  color: #333;
+}
+
+.result-box p b {
+  min-width: 150px;
+  display: inline-block;
+  color: #004d40;
+}
+.result-box h3 {
+  margin-top: 20px;
+  font-size: 20px;
+  letter-spacing: 2px;
+}
+
+/* CENTER CONTAINER */
+.result-page .container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+/* CENTER RESULT GROUP */
+.result-layout {
+  display: flex;
+  justify-content: center; 
+  align-items: center;
+  gap: 60px;
+}
+
+/* FORCE RESULT BOX CENTER */
+#finalResult {
+  display: flex;
+  justify-content: center;
+}
+
+/* FINAL RESULT BOX */
+.result-box {
+  margin: 0 auto; 
+}
+
+/* ===============================
+   CONCLUSION & ACTION
+================================ */
+.conclusion-box {
+  background: rgba(255, 255, 255, 0.95);
+  max-width: 600px;
+  margin: 30px auto 0;
+  padding: 30px 34px;
+  border-radius: 20px;
+  box-shadow: 0 8px 22px rgba(0,0,0,0.12);
+  text-align: left;
+}
+
+.conclusion-box h3 {
+  color: #00796b;
+  margin-bottom: 10px;
+}
+
+.conclusion-box h4 {
+  margin-top: 18px;
+  color: #006064;
+}
+
+.conclusion-box p {
+  font-size: 17.5px;
+  line-height: 1.76;
+  color: #444;
+}
+
+/* ===============================
+   BACK BUTTON
+================================ */
+.result-page .back-btn {
+  display: inline-block;
+  margin-top: 35px;
+  padding: 11px 30px;
+  border-radius: 30px;
+  background: linear-gradient(to right, #26a69a, #4db6ac);
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.result-page .back-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(0,0,0,.2);
+}
+
+/* ===============================
+   ANIMATION
+================================ */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===============================
+   RESPONSIVE
+================================ */
+@media (max-width: 768px) {
+  .result-layout {
+    flex-direction: column;
+  }
+
+  .side-img {
+    width: 90px;
+  }
+}
+
+@media (max-width: 768px) {
+  .result-layout {
+    flex-direction: column;
+  }
+
+  .conclusion-box {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* =========================
+   RESULT PAGE BACKGROUND
+   ========================= */
+.result-page {
+  min-height: 100vh;
+  background: linear-gradient(
+    to bottom,
+    #73cce0,
+    #f9fcfd,
+    #ffffff
+  );
+  font-family: "Segoe UI", Tahoma, sans-serif;
+}
+
+.result-page::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: radial-gradient(
+    circle at top,
+    rgba(180, 220, 230, 0.35),
+    transparent 60%
+  );
+  z-index: -1;
+}

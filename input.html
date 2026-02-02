@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Water Monitoring</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+ <div class="side-decor left">
+  <div class="decor-card">
+    <img src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6">
+    <p>Clean water supports human health and sanitation</p>
+  </div>
+  <div class="decor-card">
+    <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e">
+    <p>Freshwater ecosystems must be protected sustainably</p>
+  </div>
+</div>
+
+<div class="container">
+  <div class="panel main">
+    <h2>Water Quality Monitoring</h2>
+    <p class="desc">
+      Enter water parameters manually or receive data from the sensor device.
+    </p>
+<input id="ph" type="number" step="0.1" placeholder="pH value" oninput="autoRiskAnalysis()">
+<input id="turbidity" type="number" step="0.1" placeholder="Turbidity (NTU)" oninput="autoRiskAnalysis()">
+<input id="temp" type="number" step="0.1" placeholder="Temperature (°C)" oninput="autoRiskAnalysis()">
+    </p>
+
+<div class="risk-box">
+  <h2>Water Risk Analysis</h2>
+  <p>Risk Count: <span id="riskCountDisplay">-</span></p>
+</div>
+
+<button class="analyze-btn" onclick="startAnalysis()">
+  Start Analysis
+</button>
+
+    <div class="nav-buttons">
+      <a href="index.html" class="back-btn">← Back to Home</a>
+    </div>
+  </div>
+
+   <!-- UNDER: RESOURCE -->
+  <div class="panel resource">
+    <img src="https://c.pxhere.com/images/57/ee/6283fd9896e8eb75b072dffc6d4e-1454695.jpg!d" alt="Clean Water">
+    <h4>Why Water Monitoring?</h4>
+    <p>
+      Water quality monitoring helps prevent contamination,
+      protect ecosystems, and ensure safe water access (SDG 6).
+    </p>
+  </div>
+</div>
+
+<div class="side-decor right">
+  <div class="decor-card">
+    <img src="https://images.pexels.com/photos/416528/pexels-photo-416528.jpeg">
+    <p>Water quality monitoring prevents contamination risks</p>
+</div>
+  <div class="decor-card">
+    <img src="https://images.pexels.com/photos/1001682/pexels-photo-1001682.jpeg">
+    <p>Enables early detection of pollution and potential environmental risks</p>
+</div>
+
+  <script src="logic.js"></script>
+
+<div class="wave-container">
+</div>
