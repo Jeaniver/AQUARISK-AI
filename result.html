@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Water Quality Result</title>
+  <link rel="stylesheet" href="result.css">
+</head>
+
+<body class="result-page">
+
+  <div class="container">
+
+    <h2>Water Quality Analysis Result</h2>
+
+    <!-- MAIN RESULT LAYOUT -->
+    <div class="result-layout">
+
+      <!-- LEFT IMAGE -->
+      <img src="https://cdn-icons-png.flaticon.com/512/4148/4148460.png" class="side-img left" alt="water">
+
+      <!-- RESULT BOX -->
+      <div id="finalResult"></div>
+
+    </div>
+
+    <!-- CONCLUSION & ACTION -->
+    <div id="conclusionBox"></div>
+
+    <a href="input.html" class="back-btn">← Back to Input</a>
+
+  </div>
+
+ <script>
+  const data = JSON.parse(localStorage.getItem("waterData"));
+  const resultDiv = document.getElementById("finalResult");
+  const conclusionDiv = document.getElementById("conclusionBox");
+
+  if (!data) {
+    resultDiv.innerHTML = "<p>No data available</p>";
+  } else {
+
+    let color = "#2ecc71";
+    let conclusion = "";
+    let action = "";
+
+    if (data.riskLevel === "MODERATE RISK") {
+      color = "#f1c40f";
+      conclusion = "Water quality is acceptable but shows some potential risks. Certain parameters are slightly outside the optimal range, so caution is recommended before use.";
+      action = `
+        • Boil water before consumption<br>
+        • Improve basic filtration system<br>
+        • Monitor water quality regularly
+      `;
+    }
+
+    if (data.riskLevel === "HIGH RISK") {
+      color = "#e74c3c";
+      conclusion = "Based on the measurement results, the water quality shows a high risk level. Several parameters exceed the recommended safe limits, indicating that the water is not suitable for direct consumption and may pose health and environmental risks.";
+      action = `
+        • Do NOT consume the water directly<br>
+        • Apply advanced filtration or proper water treatment<br>
+        • Conduct regular water quality monitoring<br>
+        • Seek alternative clean water sources<br>
+        • Increase awareness about safe water usage
+      `;
+    }
+
+    if (data.riskLevel === "LOW RISK") {
+      color = "#2ecc71";
+      conclusion = "Water quality meets standard safety requirements and is considered safe for daily use under normal conditions.";
+      action = `
+        • Safe for daily consumption<br>
+        • Maintain water source cleanliness<br>
+        • Continue routine water quality monitoring
+      `;
+    }
+
+    resultDiv.innerHTML = `
+      <div class="result-box" style="border-top-color:${color}">
+        <p><b>pH Level</b><span>${data.ph}</span></p>
+        <p><b>Turbidity</b><span>${data.turbidity} NTU</span></p>
+        <p><b>Temperature</b><span>${data.temp} °C</span></p>
+        <p><b>Risk Count</b><span>${data.riskCount}</span></p>
+        <h3 style="color:${color}">${data.riskLevel}</h3>
+      </div>
+    `;
+
+    conclusionDiv.innerHTML = `
+      <div class="conclusion-box">
+        <h3>Conclusion</h3>
+        <p>${conclusion}</p>
+
+        <h4>Recommended Action</h4>
+        <p>${action}</p>
+      </div>
+    `;
+  }
+</script>
+
+</body>
+</html>

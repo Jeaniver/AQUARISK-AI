@@ -1,0 +1,182 @@
+/* ===============================
+   RESULT PAGE ONLY
+================================ */
+
+.result-page {
+  min-height: 100vh;
+  font-family: "Segoe UI", Tahoma, sans-serif;
+
+  /* BACKGROUND IMAGE (VISIBLE & SOFT) */
+  background-image:
+    linear-gradient(
+      rgba(224, 247, 250, 0.45),
+      rgba(255, 255, 255, 0.65)
+    ),
+    url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e");
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* ===============================
+   MAIN CONTAINER
+================================ */
+
+.result-page .container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 70px 20px 80px;
+  text-align: center;
+}
+
+/* ===============================
+   TITLE
+================================ */
+
+.result-page h2 {
+  font-size: 30px;
+  color: #004d40;
+  margin-bottom: 45px;
+  letter-spacing: 1px;
+}
+
+/* ===============================
+   RESULT LAYOUT
+================================ */
+
+.result-layout {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 60px;
+  margin-bottom: 45px;
+}
+
+/* ===============================
+   SIDE IMAGES
+================================ */
+
+.side-img {
+  width: 120px;
+  opacity: 0.85;
+}
+
+.side-img.left {
+  transform: rotate(-6deg);
+}
+
+/* ===============================
+   RESULT BOX (MAIN FOCUS)
+================================ */
+
+#finalResult {
+  display: flex;
+  justify-content: center;
+}
+
+.result-box {
+  background: rgba(255, 255, 255, 0.97);
+  width: 100%;
+  max-width: 650px;
+  padding: 40px 45px;
+  border-radius: 26px;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.18);
+  border-top: 8px solid #26a69a;
+  animation: fadeUp 0.6s ease;
+}
+
+/* ===============================
+   RESULT TEXT
+================================ */
+
+.result-box p {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 20px;
+  margin: 20px 10px;
+  color: #333;
+}
+
+.result-box p b {
+  min-width: 180px;
+  text-align: left;
+  color: #004d40;
+}
+
+.result-box h3 {
+  margin-top: 28px;
+  font-size: 22px;
+  letter-spacing: 2px;
+}
+
+/* ===============================
+   CONCLUSION & ACTION
+================================ */
+
+.conclusion-box {
+  background: rgba(255, 255, 255, 0.96);
+  max-width: 680px;
+  margin: 35px auto 0;
+  padding: 34px 38px;
+  border-radius: 22px;
+  box-shadow: 0 10px 26px rgba(0,0,0,0.14);
+  text-align: left;
+}
+
+.conclusion-box h3 {
+  font-size: 22px;
+  color: #00695c;
+  margin-bottom: 12px;
+}
+
+.conclusion-box h4 {
+  margin-top: 22px;
+  font-size: 20px;
+  color: #004d40;
+}
+
+.conclusion-box p {
+  font-size: 18px;
+  line-height: 1.8;
+  color: #444;
+}
+
+/* ===============================
+   BACK BUTTON
+================================ */
+
+.result-page .back-btn {
+  display: inline-block;
+  margin-top: 45px;
+  padding: 13px 34px;
+  border-radius: 30px;
+  background: linear-gradient(to right, #26a69a, #4db6ac);
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.result-page .back-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 22px rgba(0,0,0,.25);
+}
+
+/* ===============================
+   ANIMATION
+================================ */
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===============================
